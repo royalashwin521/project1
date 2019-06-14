@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+{% block body_block %}
+<div class="jumbotron">
+  <h1>EMPOLYEE INFOMATION</h1>
+<table class="table table-boredered table-hover">
+  <thead>
+    <th class="text-center">Employee No</th>
+    <th class="text-center">Employee Name</th>
+    <th class="text-center">Employee Salary</th>
+    <th class="text-center">City</th>
+    <th class="text-center">Actiond</th>
+  </thead>
+  {% for record in records %}
+  <tr>
+    <td>{{record.eno}}</td>
+    <td>{{record.ename}}</td>
+    <td>{{record.esal}}</td>
+    <td>{{record.ecity}}</td>
+    <td><a href="/update/{{record.id}}">Update</a>
+    <a href ="/delete/{{record.id}}">Delete</a></td>
+  </tr>
+  {% endfor %}
+</table>
+<a class="btn btn-danger btn-lg" href="/create">
+  INSERT NEW EMPLOYEE </a>
+</div>
+{% endblock %}
